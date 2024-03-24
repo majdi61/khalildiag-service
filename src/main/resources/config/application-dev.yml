@@ -40,7 +40,8 @@ spring:
       indent-output: true
   data:
     mongodb:
-      uri: mongodb://localhost:27017/khalildiag
+      uri: mongodb+srv://admin:admin@cluster0.udh9u.mongodb.net/khalildiag?retryWrites=true&w=majority
+      database: khalildiag
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

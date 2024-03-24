@@ -1,0 +1,19 @@
+{
+  "annotations": {
+    "changelogDate": "20240324223940"
+  },
+  "applications": "*",
+  "clientRootFolder": "khalildiag",
+  "databaseType": "mongodb",
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "khalildiag",
+  "name": "Category",
+  "relationships": [],
+  "searchEngine": "no"
+}

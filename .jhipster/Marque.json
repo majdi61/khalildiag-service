@@ -1,0 +1,27 @@
+{
+  "annotations": {
+    "changelogDate": "20240324224040"
+  },
+  "applications": "*",
+  "clientRootFolder": "khalildiag",
+  "databaseType": "mongodb",
+  "entityTableName": "marque",
+  "fields": [
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "khalildiag",
+  "name": "Marque",
+  "relationships": [
+    {
+      "otherEntityName": "model",
+      "otherEntityRelationshipName": "marque",
+      "relationshipName": "model",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

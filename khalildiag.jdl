@@ -1,0 +1,20 @@
+entity Marque {
+	label String
+}
+
+entity Model {
+	label String
+}
+
+entity Produit {
+	label String
+}
+
+entity Category {
+	label String
+}
+
+
+relationship OneToMany {
+  Marque to Model
+}
