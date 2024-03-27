@@ -27,13 +27,15 @@ public class Marque implements Serializable {
     @Id
     private String id;
 
-    @Field("label")
     private String label;
 
     @DBRef
     @Field("model")
     @JsonIgnoreProperties(value = { "marque" }, allowSetters = true)
     private Set<Model> models = new HashSet<>();
-    // jhipster-needle-entity-add-field - JHipster will add fields here
 
+    @DBRef
+    @Field("produit")
+    @JsonIgnoreProperties(value = { "marque" }, allowSetters = true)
+    private Set<Model> produits = new HashSet<>();
 }

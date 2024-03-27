@@ -1,10 +1,13 @@
 package com.khalildiag.service.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -23,12 +26,38 @@ public class Produit implements Serializable {
     @Id
     private String id;
 
-    @Field("label")
+    private String ref;
+
     private String label;
 
-    @Field("description")
+    private String denomination;
+
+    private String etat;
+
+    private String cylindre;
+
+    private String puissance;
+
+    private String carburant;
+
+    private String boiteVitesse;
+
     private String description;
 
-    @Field("imgUrl")
-    private String imgUrl;
+    private List<String> imgUrl;
+
+    @DBRef
+    @Field("marque")
+    @JsonIgnoreProperties(value = { "produits" }, allowSetters = true)
+    private Marque marque;
+
+    @DBRef
+    @Field("category")
+    @JsonIgnoreProperties(value = { "produits" }, allowSetters = true)
+    private Category category;
+
+    @DBRef
+    @Field("model")
+    @JsonIgnoreProperties(value = { "produits" }, allowSetters = true)
+    private Model model;
 }

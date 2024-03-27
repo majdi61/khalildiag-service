@@ -2,6 +2,8 @@ package com.khalildiag.service.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,11 +27,15 @@ public class Model implements Serializable {
     @Id
     private String id;
 
-    @Field("label")
     private String label;
 
     @DBRef
     @Field("marque")
     @JsonIgnoreProperties(value = { "models" }, allowSetters = true)
     private Marque marque;
+
+    @DBRef
+    @Field("produit")
+    @JsonIgnoreProperties(value = { "model" }, allowSetters = true)
+    private Set<Model> produits = new HashSet<>();
 }
