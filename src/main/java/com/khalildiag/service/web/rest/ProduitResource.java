@@ -49,10 +49,6 @@ public class ProduitResource {
 
     @PostMapping("")
     public ResponseEntity<Produit> saveProduit(@RequestBody Produit produit) throws URISyntaxException {
-        log.debug("REST request to save Produit : {}", produit);
-        if (produit.getId() != null) {
-            throw new BadRequestAlertException("A new produit cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         Produit result = produitService.save(produit);
         return ResponseEntity
             .created(new URI("/api/produits/" + result.getId()))
