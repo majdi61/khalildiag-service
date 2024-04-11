@@ -44,7 +44,7 @@ public class Produit implements Serializable {
 
     private String description;
 
-    private List<String> imgUrl;
+    private List<ImgUrl> imgUrlList;
 
     @DBRef
     @Field("marque")
