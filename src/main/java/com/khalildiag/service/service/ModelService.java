@@ -23,6 +23,7 @@ public class ModelService {
 
     public Model save(Model model) {
         log.debug("Request to save Model : {}", model);
+
         return modelRepository.save(model);
     }
 

@@ -23,6 +23,9 @@ public class ProduitService {
 
     public Produit save(Produit produit) {
         log.debug("Request to save Produit : {}", produit);
+        produit.setCategoryId(produit.getCategory().getId());
+        produit.setMarqueId(produit.getMarque().getId());
+        produit.setModelId(produit.getModel().getId());
         return produitRepository.save(produit);
     }
 
