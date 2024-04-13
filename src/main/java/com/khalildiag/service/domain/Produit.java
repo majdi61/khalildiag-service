@@ -44,6 +44,12 @@ public class Produit implements Serializable {
 
     private String description;
 
+    private String marqueId;
+
+    private String modelId;
+
+    private String categoryId;
+
     private List<ImgUrl> imgUrlList;
 
     @DBRef
