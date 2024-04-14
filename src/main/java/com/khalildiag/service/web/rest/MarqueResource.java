@@ -48,7 +48,7 @@ public class MarqueResource {
         return marqueService.getMarquesPage(document, pageable);
     }
 
-    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
+    @CrossOrigin(origins = "*")
     @PostMapping("")
     public ResponseEntity<Marque> saveMarque(@RequestBody Marque marque) throws URISyntaxException {
         log.debug("REST request to save Marque : {}", marque);
