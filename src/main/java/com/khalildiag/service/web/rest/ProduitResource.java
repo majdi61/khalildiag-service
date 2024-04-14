@@ -42,11 +42,13 @@ public class ProduitResource {
         this.produitService = produitService;
     }
 
+    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @GetMapping("")
     public Page<Produit> getLinksPage(@Filter(entityClass = Produit.class) Document document, Pageable pageable) {
         return produitService.getProduitsPage(document, pageable);
     }
 
+    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @PostMapping("")
     public ResponseEntity<Produit> saveProduit(@RequestBody Produit produit) throws URISyntaxException {
         Produit result = produitService.save(produit);
@@ -56,6 +58,7 @@ public class ProduitResource {
             .body(result);
     }
 
+    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @GetMapping("/{id}")
     public ResponseEntity<Produit> getProduitById(@PathVariable("id") String id) {
         log.debug("REST request to get Produit : {}", id);
@@ -63,6 +66,7 @@ public class ProduitResource {
         return ResponseUtil.wrapOrNotFound(produit);
     }
 
+    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduit(@PathVariable("id") String id) {
         log.debug("REST request to delete Produit : {}", id);
