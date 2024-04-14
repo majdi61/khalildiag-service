@@ -52,9 +52,7 @@ public class CategoryResource {
     @PostMapping("")
     public ResponseEntity<Category> saveCategory(@RequestBody Category category) throws URISyntaxException {
         log.debug("REST request to save Category : {}", category);
-        if (category.getId() != null) {
-            throw new BadRequestAlertException("A new category cannot already have an ID", ENTITY_NAME, "idexists");
-        }
+
         Category result = categoryService.save(category);
         return ResponseEntity
             .created(new URI("/api/categorys/" + result.getId()))

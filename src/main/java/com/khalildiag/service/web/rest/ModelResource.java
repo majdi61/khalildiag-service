@@ -52,9 +52,6 @@ public class ModelResource {
     @PostMapping("")
     public ResponseEntity<Model> saveModel(@RequestBody Model model) throws URISyntaxException {
         log.debug("REST request to save Model : {}", model);
-        if (model.getId() != null) {
-            throw new BadRequestAlertException("A new model cannot already have an ID", ENTITY_NAME, "idexists");
-        }
         Model result = modelService.save(model);
         return ResponseEntity
             .created(new URI("/api/models/" + result.getId()))

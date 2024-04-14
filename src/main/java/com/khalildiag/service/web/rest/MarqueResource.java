@@ -48,13 +48,11 @@ public class MarqueResource {
         return marqueService.getMarquesPage(document, pageable);
     }
 
-    @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "origins = \"https://khalildiag-web-admin.web.app/")
     @PostMapping("")
     public ResponseEntity<Marque> saveMarque(@RequestBody Marque marque) throws URISyntaxException {
         log.debug("REST request to save Marque : {}", marque);
-        if (marque.getId() != null) {
-            throw new BadRequestAlertException("A new marque cannot already have an ID", ENTITY_NAME, "idexists");
-        }
+
         Marque result = marqueService.save(marque);
         return ResponseEntity
             .created(new URI("/api/marques/" + result.getId()))
