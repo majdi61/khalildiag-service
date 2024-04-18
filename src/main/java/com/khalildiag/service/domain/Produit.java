@@ -38,6 +38,8 @@ public class Produit implements Serializable {
 
     private String puissance;
 
+    private String year;
+
     private String carburant;
 
     private String boiteVitesse;
