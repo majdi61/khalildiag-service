@@ -23,7 +23,7 @@ public class ModelService {
 
     public Model save(Model model) {
         log.debug("Request to save Model : {}", model);
-
+        model.setMarqueId(model.getMarque().getId());
         return modelRepository.save(model);
     }
 

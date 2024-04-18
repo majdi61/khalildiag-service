@@ -29,6 +29,8 @@ public class Model implements Serializable {
 
     private String label;
 
+    private String marqueId;
+
     @DBRef
     @Field("marque")
     @JsonIgnoreProperties(value = { "models" }, allowSetters = true)

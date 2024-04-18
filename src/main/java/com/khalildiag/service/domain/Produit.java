@@ -52,6 +52,10 @@ public class Produit implements Serializable {
 
     private List<ImgUrl> imgUrlList;
 
+    private ImgUrl imgProduitUrl;
+
+    private ImgUrl imgTicketUrl;
+
     @DBRef
     @Field("marque")
     @JsonIgnoreProperties(value = { "produits" }, allowSetters = true)
