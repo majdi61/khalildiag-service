@@ -52,6 +52,12 @@ public class Produit implements Serializable {
 
     private String categoryId;
 
+    private String marqueLabel;
+
+    private String modelLabel;
+
+    private String categoryLabel;
+
     private List<ImgUrl> imgUrlList;
 
     private ImgUrl imgProduitUrl;

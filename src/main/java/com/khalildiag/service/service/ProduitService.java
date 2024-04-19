@@ -26,6 +26,9 @@ public class ProduitService {
         produit.setCategoryId(produit.getCategory().getId());
         produit.setMarqueId(produit.getMarque().getId());
         produit.setModelId(produit.getModel().getId());
+        produit.setCategoryLabel(produit.getCategory().getLabel());
+        produit.setMarqueLabel(produit.getMarque().getLabel());
+        produit.setModelLabel(produit.getModel().getLabel());
         return produitRepository.save(produit);
     }
 
