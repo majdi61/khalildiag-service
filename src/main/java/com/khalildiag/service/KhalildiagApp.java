@@ -15,9 +15,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import tech.jhipster.config.DefaultProfileUtil;
 import tech.jhipster.config.JHipsterConstants;
 
+@RestController
 @SpringBootApplication
 @EnableConfigurationProperties({ ApplicationProperties.class })
 public class KhalildiagApp {
@@ -104,5 +107,11 @@ public class KhalildiagApp {
             contextPath,
             env.getActiveProfiles().length == 0 ? env.getDefaultProfiles() : env.getActiveProfiles()
         );
+    }
+
+
+    @RequestMapping("api/test")
+    public String test (){
+        return "working server on microsfot azure vps";
     }
 }
