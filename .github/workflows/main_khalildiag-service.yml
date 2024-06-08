@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: '21'
+          java-version: '17'
 
       - name: Build with Maven
         run: mvn clean install
@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,13 +44,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: java-app
-
+      
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6A7C3F68ADE2484A813990E0E9F3FA6A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EB4385A5A45F4C7BB30EB5DC5D864D9F }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8CA995A2158442FC8FFAE256B1783837 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FF8BADAACF0E4DDDBD43C52A1F553A6C }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1B3C9A84BB2A429D986D3223D6EF503B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_C01D85401D7B43B7913BA8F7C35BCB5A }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'khalildiag-service'
           slot-name: 'Production'
-          package: '*.jar'
-
+          package: '*.war'
+          
