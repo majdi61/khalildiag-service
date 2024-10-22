@@ -42,13 +42,11 @@ public class CategoryResource {
         this.categoryService = categoryService;
     }
 
-    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @GetMapping("")
     public Page<Category> getLinksPage(@Filter(entityClass = Category.class) Document document, Pageable pageable) {
         return categoryService.getCategorysPage(document, pageable);
     }
 
-    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @PostMapping("")
     public ResponseEntity<Category> saveCategory(@RequestBody Category category) throws URISyntaxException {
         log.debug("REST request to save Category : {}", category);
@@ -60,7 +58,6 @@ public class CategoryResource {
             .body(result);
     }
 
-    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable("id") String id) {
         log.debug("REST request to get Category : {}", id);
@@ -68,7 +65,6 @@ public class CategoryResource {
         return ResponseUtil.wrapOrNotFound(category);
     }
 
-    @CrossOrigin(origins = "https://khalildiag-web-admin.web.app/")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable("id") String id) {
         log.debug("REST request to delete Category : {}", id);
